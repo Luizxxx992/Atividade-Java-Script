@@ -1,0 +1,14 @@
+const pedroAltura= 1.80;
+const pedroPeso=70;
+const mariaAltura=1.65;
+const mariaPeso=55;
+
+const resultado1=(pedroPeso / (pedroAltura*pedroAltura));
+const resultado2=(mariaPeso / (mariaPeso*mariaAltura));
+
+if(resultado1 >= 18,5 && resultado1<24.9 || resultado2 >= 18.5 && resultado < 24.9){
+console.log(`Peso Normal`);
+
+}else{
+console.log(`Tipo de Numero Invalido`);
+}
