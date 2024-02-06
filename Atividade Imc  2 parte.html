@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <!--Configuração do Teclado -->
+    <meta charset="UTF-8">
+    <!--Função para deixar a tela respansiva-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Função para referenciar o arquivo css-->
+    <link rel="stylesheet" type="text/css" href="style1.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calcule seu IMC</h1>
+      <form>
+        <p>Digite seu peso</p>
+        <div>
+<!--Função  do tipo numero para aparecer a caixa para o usuario inserir o peso -->
+          <input id="peso" type="number"/>
+          <span>Kg</span>
+        </div>
+        <div>
+          <p>Digite sua altura</p>
+          <input id="altura" type="number" required="true"  />
+          
+          <span>cm</span>
+          <p>Digite sua idade</p>
+          <input type="number" id="idade" />
+        </div>
+        <div>
+          <input id="btnCalcular" class="botao-calcular" type="button" value="Calcular"/>
+        </div>
+      </form>
+      <div id="resultado"></div>
+      <!--Função com o link do arquivo.js para o botões e resultados poderem funcionar-->
+      <script src="script1.js"></script>
+    </div>
+  </body>
+</html>
