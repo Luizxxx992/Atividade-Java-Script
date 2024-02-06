@@ -4,9 +4,9 @@ const mariaAltura=1.65;
 const mariaPeso=55;
 
 const resultado1=(pedroPeso / (pedroAltura*pedroAltura));
-const resultado2=(mariaPeso / (mariaPeso*mariaAltura));
+const resultado2=(mariaPeso / (mariaAltura*mariaAltura));
 
-if(resultado1 >= 18,5 && resultado1<24.9 || resultado2 >= 18.5 && resultado < 24.9){
+if(resultado1 >= 18,5 && resultado1<24.9 || resultado2 >= 18.5 && resultado2 < 24.9){
 console.log(`Peso Normal`);
 
 }else{
