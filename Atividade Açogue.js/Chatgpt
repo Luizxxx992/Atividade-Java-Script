@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Compras</title>
+</head>
+<body>
+
+<h1>Calculadora de Compras</h1>
+
+<form id="compraForm">
+  <label for="nome">Nome do Cliente:</label>
+  <input type="text" id="nome" required><br><br>
+  
+  <label for="carneBoi">Quantidade de carne de boi (kg):</label>
+  <input type="number" id="carneBoi" min="0" step="0.1" required><br><br>
+  
+  <label for="carneFrango">Quantidade de carne de frango (kg):</label>
+  <input type="number" id="carneFrango" min="0" step="0.1" required><br><br>
+  
+  <label for="linguica">Quantidade de linguiça (kg):</label>
+  <input type="number" id="linguica" min="0" step="0.1" required><br><br>
+  
+  <label for="diaSemana">Dia da Semana (0 a 6):</label>
+  <input type="number" id="diaSemana" min="0" max="6" required><br><br>
+  
+  <button type="submit">Calcular</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+  // Função para aplicar desconto de 10% nas quartas-feiras e 5% nas segundas-feiras
+  function aplicarDesconto(valorTotal, diaDaSemana) {
+    if (diaDaSemana === 1) { // 1 representa segunda-feira
+      return valorTotal * 0.95; // Aplica desconto de 5%
+    } else if (diaDaSemana === 3) { // 3 representa quarta-feira
+      return valorTotal * 0.9; // Aplica desconto de 10%
+    } else {
+      return valorTotal; // Sem desconto
+    }
+  }
+
+  document.getElementById('compraForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const carneBoi = parseFloat(document.getElementById('carneBoi').value);
+    const carneFrango = parseFloat(document.getElementById('carneFrango').value);
+    const linguica = parseFloat(document.getElementById('linguica').value);
+    const diaSemana = parseInt(document.getElementById('diaSemana').value);
+
+    const valorTotal = calcularTotal(carneBoi, carneFrango, linguica);
+    const valorComDesconto = aplicarDesconto(valorTotal, diaSemana);
+
+    const resultado = `O total da compra de ${nome} é R$ ${valorTotal.toFixed(2)}. Com desconto, o valor final é R$ ${valorComDesconto.toFixed(2)}.`;
+
+    document.getElementById('resultado').innerText = resultado;
+  });
+
+  function calcularTotal(carneBoi, carneFrango, linguica) {
+    const precoCarneBoi = 25;
+    const precoCarneFrango = 15;
+    const precoLinguica = 20;
+
+    return (carneBoi * precoCarneBoi) + (carneFrango * precoCarneFrango) + (linguica * precoLinguica);
+  }
+</script>
+
+</body>
+</html>
